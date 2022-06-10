@@ -34,7 +34,7 @@ namespace WPFAppFramework
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             manager = await UpdateManager
-                .GitHubUpdateManager(@"https://github.com/GEN-SILVER/WPFCoreTest");
+                .GitHubUpdateManager(@"https://github.com/GEN-SILVER/WPFFrameworkTest");
 
             CurrentVersionTextBox.Text = manager.CurrentlyInstalledVersion().ToString();
         }
