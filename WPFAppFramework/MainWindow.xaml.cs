@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-//using Squirrel;
+using Squirrel;
 
 namespace WPFAppFramework
 {
@@ -22,7 +22,7 @@ namespace WPFAppFramework
     /// </summary>
     public partial class MainWindow : Window
     {
-        //UpdateManager manager;
+        UpdateManager manager;
 
         public MainWindow()
         {
@@ -33,38 +33,38 @@ namespace WPFAppFramework
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //manager = await UpdateManager
-            //    .GitHubUpdateManager(@"https://github.com/GEN-SILVER/WPFCoreTest");
+            manager = await UpdateManager
+                .GitHubUpdateManager(@"https://github.com/GEN-SILVER/WPFCoreTest");
 
-            //CurrentVersionTextBox.Text = manager.CurrentlyInstalledVersion().ToString();
+            CurrentVersionTextBox.Text = manager.CurrentlyInstalledVersion().ToString();
         }
 
         private async void CheckForUpdatesButton_Click(object sender, RoutedEventArgs e)
         {
-            //var updateInfo = await manager.CheckForUpdate();
+            var updateInfo = await manager.CheckForUpdate();
 
-            //if (updateInfo.ReleasesToApply.Count > 0)
-            //{
-            //    UpdateButton.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    UpdateButton.IsEnabled = false;
-            //}
+            if (updateInfo.ReleasesToApply.Count > 0)
+            {
+                UpdateButton.IsEnabled = true;
+            }
+            else
+            {
+                UpdateButton.IsEnabled = false;
+            }
         }
 
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    await manager.UpdateApp();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                await manager.UpdateApp();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            //MessageBox.Show("Updated succesfuly!");
+            MessageBox.Show("Updated succesfuly!");
         }
     }
 }
