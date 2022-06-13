@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Prueba" Margin="0 0 20 0" FontSize="20"/> 
+            <TextBlock Text="Prueba 1.1.3" Margin="0 0 20 0" FontSize="20"/> 
             <Label>
                 Current version
             </Label>
